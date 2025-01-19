@@ -1,4 +1,5 @@
-name: linting-worksflow
+name: Linting Pipeline
+
 on:
   push:
     branches:
@@ -8,16 +9,24 @@ on:
       - develop
 
 jobs:
-  linting-job:
+  linting:
     runs-on: ubuntu-latest
+
     steps:
-      - name: build-step 
-        uses: actions/checkout@v4
-      - name: instaling html hint  
-        run: npm install --save-dev htmlhint
-      - name: instaling style lint  
-        run: npm install --save-dev stylelint
-      - name: running html hint  
-        run: npx htmlhint "**/*.html"
-      - name: running style lint  
-        run: npx stylelint "**/*.css"     
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: |
+          npm install htmlhint stylelint
+
+      - name: Run HTMLHint
+        run: npx htmlhint **/*.html
+
+      - name: Run Stylelint
+        run: npx stylelint **/*.css
