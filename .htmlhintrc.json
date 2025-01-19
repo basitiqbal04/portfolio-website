@@ -1,0 +1,16 @@
+[
+    {
+        "attr-value-double-quotes": true,
+        "tagname-lowercase": true,
+        "doctype-first": true,
+        "id-unique": true
+    },
+    {
+        "attr-value-double-quotes": true,
+        "tagname-lowercase": true,
+        "doctype-first": true,
+        "id-unique": true,
+        "src-not-empty": true,
+        "head-script-disabled": true
+    }
+]
